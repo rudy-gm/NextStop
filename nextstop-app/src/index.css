@@ -1,0 +1,402 @@
+:root {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0f172a;
+  background-color: #f6f7fb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #f6f7fb;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+select {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #dbe3f0;
+  background: #f8fafc;
+}
+
+select:focus {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 1px;
+  background: #ffffff;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.brand span {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.connection-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.connection-badge .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #cbd5f5;
+}
+
+.connection-badge .dot.online {
+  background: #22c55e;
+}
+
+.connection-badge .dot.offline {
+  background: #cbd5f5;
+}
+
+.connection-badge .ws-url {
+  font-size: 12px;
+  color: #64748b;
+  background: #e2e8f0;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.layout {
+  flex: 1;
+  display: grid;
+  gap: 16px;
+  padding: 16px 20px 24px;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+}
+
+.map-panel {
+  position: relative;
+  min-height: 0;
+}
+
+.map-container {
+  width: 100%;
+  height: calc(100vh - 160px);
+  min-height: 380px;
+  border-radius: 14px;
+  border: 1px solid #dbe3f0;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.map-placeholder {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.map-hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #dbe3f0;
+  background: #f8fafc;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 1px;
+  background: #ffffff;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #1d4ed8;
+  background: #ffffff;
+  color: #1d4ed8;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+button.primary {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.direction-toggle {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid #dbe3f0;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+}
+
+.chip:hover {
+  border-color: #1d4ed8;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.help-text {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.card dl {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.card dl div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.card dt {
+  color: #64748b;
+}
+
+.card dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.upcoming-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upcoming-list li {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stop-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.stop-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #475569;
+}
+
+.log-window {
+  background: #0f172a;
+  color: #f1f5f9;
+  border-radius: 10px;
+  min-height: 140px;
+  max-height: 220px;
+  padding: 12px;
+  overflow: auto;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 12px;
+}
+
+.log-line {
+  padding: 2px 0;
+}
+
+.log-empty {
+  color: #94a3b8;
+}
+
+.marker-wrapper {
+  position: relative;
+  transform: translate(-50%, -100%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.marker-label {
+  background: rgba(15, 23, 42, 0.88);
+  color: #f8fafc;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+}
+
+.marker-pin {
+  width: 12px;
+  height: 12px;
+  background: #1d4ed8;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

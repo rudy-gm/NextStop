@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "id": "uf-orange",
+      "name": "UF Orange Line",
+      "directionNames": {
+        "outbound": "Apartments → Campus",
+        "inbound": "Campus → Apartments"
+      },
+      "polyline": [
+        [-82.3834, 29.6185],
+        [-82.3802, 29.6214],
+        [-82.3761, 29.6248],
+        [-82.3715, 29.6289],
+        [-82.3668, 29.6327],
+        [-82.3607, 29.6375],
+        [-82.3539, 29.6416],
+        [-82.3484, 29.6458],
+        [-82.3445, 29.6489],
+        [-82.3419, 29.6513]
+      ],
+      "stops": [
+        { "id": "oak-park", "name": "Oak Park Apts", "lat": 29.6208, "lng": -82.3800, "sequence": 1 },
+        { "id": "archer-sw", "name": "SW Archer Rd", "lat": 29.6252, "lng": -82.3747, "sequence": 2 },
+        { "id": "butler-plaza", "name": "Butler Plaza", "lat": 29.6310, "lng": -82.3688, "sequence": 3 },
+        { "id": "museum-rd", "name": "Museum Rd", "lat": 29.6387, "lng": -82.3609, "sequence": 4 },
+        { "id": "reitz-union", "name": "Reitz Union", "lat": 29.6460, "lng": -82.3470, "sequence": 5 },
+        { "id": "tigert", "name": "Tigert Hall", "lat": 29.6508, "lng": -82.3418, "sequence": 6 }
+      ],
+      "defaults": {
+        "dwellSeconds": 20,
+        "minSpeedMps": 3.0
+      }
+    }
+  ]
+}
